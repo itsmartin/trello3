@@ -53,8 +53,8 @@ class Checklists(object):
         resp.raise_for_status()
         return resp.json()
 
-    def new(self, name, idBoard):
-        resp = requests.post("https://trello.com/1/checklists" % (), params=dict(key=self._apikey, token=self._token), data=dict(name=name, idBoard=idBoard))
+    def new(self, name, idCard):
+        resp = requests.post("https://trello.com/1/checklists" % (), params=dict(key=self._apikey, token=self._token), data=dict(name=name, idCard=idCard))
         resp.raise_for_status()
         return resp.json()
 
@@ -67,5 +67,3 @@ class Checklists(object):
         resp = requests.delete("https://trello.com/1/checklists/%s/checkItems/%s" % (idChecklist, idCheckItem), params=dict(key=self._apikey, token=self._token), data=None)
         resp.raise_for_status()
         return resp.json()
-
-    
