@@ -153,6 +153,11 @@ class Cards(object):
         resp.raise_for_status()
         return resp.json()
 
+    def new_label_id(self, card_id_or_shortlink, value):
+        resp = requests.post("https://trello.com/1/cards/%s/idLabels" % (card_id_or_shortlink), params=dict(key=self._apikey, token=self._token), data=dict(value=value))
+        resp.raise_for_status()
+        return resp.json()
+
     def new_member(self, card_id_or_shortlink, value):
         resp = requests.post("https://trello.com/1/cards/%s/members" % (card_id_or_shortlink), params=dict(key=self._apikey, token=self._token), data=dict(value=value))
         resp.raise_for_status()
