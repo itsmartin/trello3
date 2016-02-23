@@ -152,8 +152,8 @@ class Boards(object):
         resp.raise_for_status()
         return resp.json()
 
-    def new_list(self, board_id, name):
-        resp = requests.post("https://trello.com/1/boards/%s/lists" % (board_id), params=dict(key=self._apikey, token=self._token), data=dict(name=name))
+    def new_list(self, board_id, name, pos=None):
+        resp = requests.post("https://trello.com/1/boards/%s/lists" % (board_id), params=dict(key=self._apikey, token=self._token), data=dict(name=name, pos=pos))
         resp.raise_for_status()
         return resp.json()
 
